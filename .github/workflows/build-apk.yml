@@ -23,7 +23,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Generate Wrapper & Build APK
-        run: | gradle wrapper --gradle-version 8.9 chmod +x gradlew ./gradlew assembleDebug --stacktrace 
+        run: |
+          gradle wrapper --gradle-version 8.9
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
