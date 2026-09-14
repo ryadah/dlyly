@@ -139,7 +139,7 @@ class MailNotificationService : Service() {
             if (seen.contains(id)) return
             showMessageNotification(context, id, from, subject, body)
             seen.add(id)
-            val trimmed = seen.takeLast(MAX_SEEN_IDS).joinToString(SEEN_SEPARATOR)
+            val trimmed = val trimmed = seen.toList().takeLast(MAX_SEEN_IDS).joinToString(SEEN_SEPARATOR).joinToString(SEEN_SEPARATOR)
             p.edit().putString(SEEN_KEY, trimmed).apply()
         }
 
